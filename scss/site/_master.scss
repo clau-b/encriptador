@@ -11,6 +11,10 @@ header {
     }
 }
 
+form {
+    height: calc(100% - 110px);
+}
+
 .container {
     width: calc(100% - 30px);
     max-width: 1200px;
@@ -18,6 +22,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    height: calc(100vh - 300px);
 
     &-msj {
         color: #495057;
@@ -28,7 +33,7 @@ header {
         width: calc(100% - 480px);
 
         textarea {
-            height: 800px;
+            height: 100%;
             width: 100%;
             background: transparent;
             border: 0;
