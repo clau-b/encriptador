@@ -45,16 +45,6 @@ function decrypt(mensaje) {
     return mensaje;
 }
 
-document.getElementById('encriptar').addEventListener('click', function(e){
-    e.preventDefault();
-    if (textarea.value == '') {
-        sinmensaje.removeAttribute('style');
-        return false;
-    }
-    sinmensaje.style.display = 'none';
-    mensajencriptado.innerHTML = encrypt(textarea.value);
-    mensajencriptado.removeAttribute('style');
-});
 
 document.getElementById('desencriptar').addEventListener('click', function(e){
     e.preventDefault();
@@ -65,4 +55,19 @@ document.getElementById('desencriptar').addEventListener('click', function(e){
     document.getElementById('sinmensaje').style.display = 'none';
     mensajencriptado.removeAttribute('style');
     mensajencriptado.innerHTML = decrypt(textarea.value);
+});
+
+document.getElementById('encriptar').addEventListener('click', function(e){
+    e.preventDefault();
+    if (textarea.value == '') {
+        sinmensaje.removeAttribute('style');
+        return false;
+    } else if(/^[a-z]+$/g.test(textarea.value)) {
+        sinmensaje.style.display = 'none';
+        mensajencriptado.innerHTML = encrypt(textarea.value);
+        mensajencriptado.removeAttribute('style');
+        return false;
+    } else {
+        alert('Solo letras minúsculas y sin acentos');
+   }
 });
